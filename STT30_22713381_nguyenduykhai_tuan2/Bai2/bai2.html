@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            position: relative; 
+            padding: 0;
+            margin: 0;
+        }
+        .body{
+            position: absolute;
+            width: 97%;
+            height: 1000px;
+            margin-left:20px;
+            margin-top: 20px;
+
+        }
+        .container{
+            width: 100%;
+            height: 23%;
+
+        }
+        .header{
+            box-sizing: border-box; 
+            width: 100%;
+            height: 80%;
+            background-image: url('background.png');
+        }
+        .header2{
+            box-sizing: border-box;
+            width: 100%;
+            height: 20%;
+            background-color: rgb(176, 174, 174);
+            display: flex;
+            align-items: center;
+
+        }
+        .chu{
+            width: 500px;
+            height: 150px;
+            margin-left: 200px;
+
+        }
+        .chu1{
+            color: white;
+            font-size: 40px;
+            background-image: url('background.png');
+        }
+        .chu2{
+            color: white;
+            font-size: 25px;
+            background-image: url('background.png');
+        }
+        .chunen2{
+
+            color:white;
+            font-size: 25px;
+            margin-right: 40px;
+
+        }
+        .section{
+            float: left;
+            box-sizing: border-box;
+            width: 75%;
+            height: 65%;
+
+        }
+        .aside{
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            height: 65%;
+
+        }
+        .article1{
+            position: relative;
+            box-sizing: border-box;
+            height: 50%;
+            width: 100%;
+
+        }
+        .article1a{
+            position: absolute;
+            box-sizing: border-box;
+            height: 100%;
+            width: 60%;
+
+        }
+        .article1b{
+            float: right;
+            position: relative;
+            box-sizing: border-box;
+            height: 100%;
+            width: 40%;
+
+
+        }
+        .ar1{
+            height: 100px;
+            width: 100px;
+            float: left;
+
+        }
+        .rau{
+            margin-top: 30px;
+            margin-left: 30px;
+            height: 80%;
+            width:430px;
+        }
+        .caphe{
+            margin-left: 30px;
+            height: 80%;
+            width:430px;
+        }
+        .article2{  
+            position:relative;
+            box-sizing: border-box;
+            height: 50%;
+            width: 100%;
+
+        }
+        .article2a{
+            position: absolute;
+            box-sizing: border-box;
+            height: 100%;
+            width: 60%;
+
+        }
+        .article2b{
+            float: right;
+            box-sizing: border-box;
+            height: 100%;
+            width: 40%;
+
+        }
+        .section1{
+            box-sizing: border-box;
+            height: 60%;
+            width: 80%;
+
+        }
+        .aside_chu{
+            font-size: 23px;
+            color:red;
+            margin-bottom   : 20px;
+        }
+        .aside_chu2{
+            font-size: 20px;
+            margin-bottom   : 8px;
+        }
+        .section2{
+            box-sizing: border-box;
+            height: 40%;
+            width: 100%;
+
+        }
+        .footer{
+            float: left;
+            height: 4%;
+            width: 100%;
+            background-color: rgb(176, 174, 174);
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="container">
+            <div class="header">
+                <img class="nen1" src="logo.png" alt="" style="float: left;">
+                <div class="chu">
+                    <br><br><br>
+                    <p class="chu1">YOKO'S KITCHEN </p>
+                    <p class="chu2">JAPANESE COOKING CLASSES</p>
+                </div>
+
+ 
+            </div>
+            <div class="header2">
+                <span style="color: black;margin-left: 30px;" class="chunen2">home</span>
+                <span class="chunen2">classes</span>
+                <span class="chunen2">catering</span>
+                <span class="chunen2">about</span>
+                <span class="chunen2">contact</span>
+            </div>
+        </div>
+        <div class="section">
+            <div class="article1">
+                <div class="article1a">
+                    <img class="rau" src="rau.png" alt="">
+                    <p style="margin-left: 30px;font-size: 20px;">Bok Choi</p>
+                </div>
+                <div class="article1b">
+                    <p style="margin-top: 50px;font-size: 25px;">Japanese Vegetarian</p>
+                    <p style="color:red;font-size: 20px;margin-bottom: 20px;">Five week course in London</p>
+                    <p>A five week introduction to traditional <br> Japanese vegetarian meals, teaching you a <br> selection of rice and noodle dishes.</p>
+                </div>
+
+            </div>
+            <div class="article2">
+                <div class="article2a">
+                    <img class="caphe" src="teriyaki.jpg" alt="">
+                    <p style="margin-left: 30px;font-size: 20px;">Teriyaki Sauce</p>
+                </div>
+                <div class="article2b">
+                    <p style="margin-top: 30px;font-size: 25px;">Sauces Masterclass</p>
+                    <p style="color:red;font-size: 20px;margin-bottom: 20px;">One day workshop</p>
+                    <p>An intensive one-day course looking at how <br> to create the most delicious sauces for use in <br> a range of Japanese cookery.</p>
+                </div>
+            </div>
+        </div>
+        <div class="aside">
+            <div class="section1"> 
+                <p class="aside_chu" style="margin-left: 0px;font-size: 30px;margin-top: 30px;">Popular Recipies</p>
+                <p class="aside_chu">Yakitori (grilled chicken)</p>
+                <p class="aside_chu">Tsukune (minced chicken patties)</p>
+                <p class="aside_chu">Okonomiyaki (savory pancakes)</p>
+                <p class="aside_chu">Mizutaki (chicken stew)</p>
+
+            </div>
+            <div class="section2">
+                <p class="aside_chu2" style="margin-bottom: 30px;font-size: 32px;color:red">Contact</p>
+                <p class="aside_chu2">Yoko's Kitchen</p>
+                <p class="aside_chu2">27 Redchurch Street</p>
+                <p class="aside_chu2">Shoreditch</p>
+                <p class="aside_chu2">London E2 7DP</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p style="font-size: 20px;color:aliceblue;margin-top:15px;margin-left: 10px;">&#169;2011 Yoko's Kitchen</p>
+        </div>
+    </div>
+    
+</body>
+</html>
