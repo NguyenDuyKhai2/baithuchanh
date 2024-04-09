@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-countdown">
+        <p class="title">Kết thúc sau:&ensp;</p>
+        <ul class="box-time mt-3" style="display: flex">
+            <li>
+                <p class="time" >01</p>
+                <p class="separate">:</p>
+            </li>
+            <li>
+                <p class="time" >11</p>
+                <p class="separate">:</p>
+            </li>
+            <li>
+                <p class="time" >22</p>
+                <p class="separate">:</p>
+            </li>
+            <li>
+                <p class="time" >12</p>
+                <p style="margin: unset;" class="separate"></p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // Đặt thời điểm đích mà bạn muốn đếm ngược đến
+        var countDownDate = new Date("Apr 1, 2024 20:00:00").getTime();
+        
+        // Cập nhật đếm ngược mỗi 1 giây
+        var x = setInterval(function() {
+        
+          // Lấy thời điểm hiện tại
+          var now = new Date().getTime();
+          
+          // Tính khoảng cách thời gian giữa bây giờ và thời điểm đích
+          var distance = countDownDate - now;
+          
+          // Tính toán số ngày, giờ, phút và giây
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          // Hiển thị kết quả trong thẻ <p> có class="time"
+          document.querySelector('.box-countdown .box-time').innerHTML = 
+            '<li><p class="time">' + days + '</p><p class="separate">:</p></li>' +
+            '<li><p class="time">' + hours + '</p><p class="separate">:</p></li>' +
+            '<li><p class="time">' + minutes + '</p><p class="separate">:</p></li>' +
+            '<li><p class="time">' + seconds + '</p><p class="separate"></p></li>';
+                                  
+                                  // Nếu đếm ngược kết thúc, hiển thị một thông báo
+                                  if (distance < 0) {
+                                    clearInterval(x);
+                                    document.querySelector('.box-countdown .box-time').innerHTML = "EXPIRED";
+                                  }
+                                }, 1000);
+        </script>
+</body>
+</html>

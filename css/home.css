@@ -1,0 +1,172 @@
+/* *{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    display: block;
+    width: 4650px;
+   
+}
+.imgtop{
+    text-align: center;
+    background-color: rgb(225,136,156);
+    height: 150px;
+}
+nav{
+    background-color: rgb(255,212,0);
+    height: 220px;
+}
+
+.brand{
+    line-height: 200px;
+    margin-left: 470px;
+    text-decoration: none;
+    color: white;
+    font-size: 100px;
+    font-weight: bold;
+}
+.brand:hover{
+    transform: scale(1.1);
+    color: white;
+}
+.chonheader{
+    height: 120px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(255, 172, 10, .6);
+    width: 700px;
+    font-size: 60px;
+    line-height: 200px;
+}
+
+form{
+    font-size: 50px;
+    border: none;
+}
+.search{
+    border: none;
+    background-color:  rgba(255, 172, 10, .6);
+    height: 120px;
+
+}
+.timkiem:hover{
+    transform: scale(1.1);
+}
+button{
+    border: none;
+    height: 120px;
+}
+
+ul{
+    display: flex; 
+}
+ul>li{
+    list-style: none;
+    margin-right: 160px;
+}
+ul>li>a{
+    text-decoration: none;
+    color: black;
+    font-size: 70px;
+    font-weight: 600;
+}
+
+ul>li>a:hover{
+    color: red;
+
+} */
+
+/* section */
+.dthoai{
+    position: relative;
+}
+.dthoai:hover .do{
+    display: block;
+    background: none;
+}
+.sanpham{
+    margin-left: -150px;
+}
+.khungmenu{
+    border-radius: 20px;
+}
+.do{
+    position: absolute;
+    display: none;
+    animation-duration: 0s;
+    animation-name: dienthoai;
+    animation-fill-mode: forwards;
+    border-radius: 20px;
+}
+@keyframes dienthoai{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.dthoai:hover .do1{
+    display: block;
+}
+
+.do1{
+    position: absolute;
+    display: none;
+    right: 0px;
+    animation-duration: 0s;
+    animation-name: dienthoai1;
+    animation-fill-mode: forwards;
+}
+@keyframes dienthoai1{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.khunggt{
+    width: 3000px; 
+    background: red;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+}
+
+b>a{
+    font-size: 50px;
+    color: white;
+    text-decoration: none;
+}
+td>a{
+    font-size: 50px;
+    color: white;
+    text-decoration: none;
+}
+td>b{
+    font-size: 50px;
+    color: white;
+}
+
+
+.noi:hover{
+    transform: scale(1.08);
+}
+
+.khung{
+    width: 900px;
+}
+.modallogin{
+    display: inline;
+    border: 1px solid black;
+    
+}
+
+.buttonmodal{
+    display:flex;
+    height: 40px;
+    width: 130px;
+    background: none;
+    /* border: 1px solid black; */
+    margin-right: 30px;
+    font-size: 30px;
+}
+/* .buttonmodal:not(:focus-visible){
+    color: rgb(255, 166, 9);
+    border-bottom: 2px solid rgb(255, 166, 9);
+} */

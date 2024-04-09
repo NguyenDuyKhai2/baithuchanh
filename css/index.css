@@ -1,0 +1,480 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+   font-family: Arial, Helvetica, sans-serif;
+}
+/* header{
+    text-align: center;
+} */
+ul{
+    list-style: none;
+}
+li>a{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 1000px;
+    margin: auto;
+}
+header img{
+    width: 100%;
+}
+/* ...............Nav....................... */
+nav{
+    width: 100%;
+    background: #000;
+    /* margin-top: -4px; */
+    height: 70px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    width: 1050px;
+    margin-left: -50px;
+    margin-top: -9px;
+}
+nav ul li, a{
+    font-size: 13px;
+    /* line-height: 40px; */
+}
+
+/* nav ul li{
+    border: 1px solid red;
+    height: 46px;
+    margin-top: 7px;
+} */
+
+
+nav ul li:nth-child(1) a{
+    font-size: 40px;
+    margin-left: -30px;
+    color: white;
+    text-decoration: none;
+}
+nav ul li:nth-child(2) span:hover{
+    color: #FFF200;
+}
+nav ul li:nth-child(2) i{
+    color: #FFF200;
+    font-size: 15px;
+}
+
+nav ul li:nth-child(3) input{
+    width: 160px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+nav ul li:nth-child(3) i{
+    position: absolute;
+    font-size: 17px;
+    margin-left: -25px;
+    color: black;
+    line-height: 30px;
+}
+nav ul li:nth-child(4) button{
+    height: 30px;
+    padding: 0 12px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #3f3f3f;
+    border-radius: 5px;
+}
+
+
+.khungnav{
+    /* border: 1px solid red; */
+    height: 46px;
+    line-height: 46px;
+    width: 80px;
+    text-align: center; 
+    /* margin-top: -5px; */
+}
+
+.khungnav:hover{
+    background: white;
+}
+
+.khungnav:hover >a{
+    color: black;
+    font-weight: bold;
+    /* font-size: 14px; */
+}
+
+nav ul li:nth-child(4) button:hover {
+    background: #575757;
+}
+.textnone{
+    text-decoration: none;
+    color: white;
+    /* border: 1px solid red; */
+    font-size: 14px;
+    margin-top: 10px;
+    /* line-height: 46px; */
+}
+
+
+/* nav ul li:nth-child(5) a:hover {
+    color: black;
+    background: white;
+
+}
+nav ul li:nth-child(6) a:hover {
+    color: black;
+    background: white;
+
+}
+nav ul li:nth-child(7) a:hover {
+    color: black;
+    background: white;
+
+}
+nav ul li:nth-child(8) a:hover {
+    color: black;
+    background: white;
+
+}
+nav ul li:nth-child(9) a:hover {
+    color: black;
+    background: white; 
+
+}*/
+.modal-content{
+    box-shadow: 0px 0px 15px 2px rgba(255,255,255,0.5);
+    color: white;
+}
+/* ..................menu.......................... */
+.menu{
+    display: flex;
+    width: 100%;
+    background: #FFF200;
+    justify-content: center;
+    height: 40px;
+    border-top: 1px solid rgb(77, 76, 76);
+    text-align: center;
+    margin-top: -16px;
+    /* border: 1px solid red; */
+}
+
+.main-menu{
+    width: 1000px;
+    margin-top: 30px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    align-items: cente
+    
+}
+
+.main-menu li >a{
+    line-height: 40px;
+    color: black;
+    position: relative;
+    display: block;
+    width: 106px;
+    /* border: 1px solid red; */
+    height: 40px;
+}
+
+.main-menu>li>a:hover{
+    background: black;
+    color: white;
+}
+
+
+.textmenu{
+    font-size: 20px;
+    /* font-weight: bold; */
+}
+
+.main-menu ul.sup-menu{
+    margin-top: px;
+    border: 1px solid rgb(195, 188, 188);
+    position: absolute;
+    width: 100px;
+    position: absolute;
+    background: #f6ea07;
+    list-style: none;
+    /* border-radius: 5px; */
+    display: none;
+}
+.main-menu li:hover>ul.sup-menu{
+    display: block;
+
+}
+
+.main-menu ul.sup-menu a{
+    /* border: 1px solid red; */
+    text-align: left;
+    width: 160px;
+    color: black;
+    margin-bottom: 2px;
+    padding:5px;
+    left: 0;
+    height: 40px;
+}
+
+
+.main-menu li:hover{
+    border-bottom: 1px solid white;
+}
+
+
+.main-menu ul.sup-menu li{
+    width: 200px;
+    margin-left: -32px;    
+}
+
+
+
+.main-menu ul.sup-menu li:last-child a{
+    border: none;
+}
+
+.main-menu ul.sup-menu ul.sup-menu{
+    left: 151px;
+    top: 41px;
+}
+.main-menu ul.sup-menu ul.sup-menu li:last-child a{
+    border: none;
+    
+}
+
+
+/* ....................section........................ */
+
+section{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+section>img{
+    margin: 0 auto;
+    /* border: 1px solid white; */
+    /* border-radius: 5px; */
+    width: 100%;
+    /* height: 444px; */
+}
+
+.khungtg{
+    border-radius: 10px;
+    width: 160px;
+    font-size: 13px;
+    border: 1px solid rgb(210, 209, 209);
+    background: linear-gradient(to top, rgb(246, 246, 105), rgb(237, 243, 172));
+}
+
+.box-countdown{
+    display: flex;
+    height: 60px;
+    margin-top: -58px;
+    margin-left: 30px;
+    color: rgb(111, 73, 2);
+}
+
+.box-time{
+    /* border: 1px solid red; */
+    display: flex;
+    width: 150px;
+}
+
+.box-time >li{
+    font-weight: 600;
+
+    border-radius: 5px;
+    /* margin-left: 2px; */
+    /* background: #ebe6e6; */
+    /* border: 1px solid red; */
+    list-style: none;
+    display: flex;
+    text-align: left;
+}
+
+
+.title{
+    /* border: 1px solid red; */
+    font-weight: bold;
+    margin-right: -26px;
+    margin-top: 15px;
+}
+
+.khunggt{
+    height: 865px;
+    margin: 0 auto;
+    width: 100%;
+    background: #FED101;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+}
+.rowgt{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    /* border: 1px solid red; */
+}
+.rowgt img{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 5px;
+}
+
+.anhsec{
+    margin-right: 5px;
+    border: 1px solid rgb(226, 223, 223);
+    height: 280px;
+    border-radius: 7px;
+    margin-top: 0.1px;
+    transition: transform 0.1s;
+}
+
+.anhsec:hover{
+    border: 1px solid rgb(154, 150, 150);
+    transition: all 0.1s ease;
+}
+
+.anhsec:hover {
+    transform: scale(1.05);
+    /* border: 1px solid red; */
+}
+/* .................footer...................... */
+footer{
+    width: 100%;
+    border-top: 1px solid rgb(230, 226, 226);
+    clear: both;
+    position: relative;
+}
+.footer-title{
+    clear: both;
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.footer-top{
+    margin: auto;
+    display: flex;
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer-col{
+    width: 25%;
+}
+.footer-text-contact{
+    color: #2f80ed;
+    font-weight: bold;
+}
+.footer-menu{
+    padding: 0;
+    list-style: none;
+}
+.footer-text-link{
+    color: black;
+    font-size: 10px;
+}
+.footer-list-link{
+    margin-bottom: 2px;
+    margin-left: 5px;
+    text-align: left;
+}
+.footer-text-contact{
+    text-align:left;
+    margin-top: 1.5px;
+    font-size: 8px;
+}
+.footer-text-call{
+    margin-right: 2px;
+    font-size: 10px;
+}
+.footer-list-contact{
+    display: flex;
+    height: 30px;
+    margin-left: 5px;
+}
+.footer-list-logo{
+    display: inline-block;
+    width: 18%;
+    margin-bottom: 5px;
+    padding: 0;
+}
+.footer-img-logo{
+    
+    width: 90%;
+}
+.footer-list-avarta{
+    display: inline-block;
+    width: 21%;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 9px;
+    
+}
+.footer-avarta-member{
+    width: 100%;
+    vertical-align: top;
+    height: 30px;
+}
+.footer-list-avartapay{
+    display: inline-block;
+    width: 20%;
+    margin-bottom: 5px;
+    float: left;
+}
+
+.footer-avarta-pay{
+    width: 80%;
+}
+.footer-bot{
+    clear: both;
+    text-align: center;
+    padding-top: 10px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    color: #020109;
+    font-weight: bold;
+    margin: auto;
+}
+.rotate-up {
+    transform: rotate(180deg);
+}
+
+/* .................css modal.......................... */
+
+.modal-bodydd{
+    overflow-y: auto; 
+    max-height: 300px;
+
+}
+
+.modal-bodydd .col-5{
+    width: 200px;
+    margin-right: 30px;
+    border-bottom: 1px solid rgb(220, 212, 212);
+    height: 40px;
+}
+
+.modal-bodydd .col-5:hover{
+    background: rgb(233,244,251);
+}
+
+.modal-bodydd .col-5 p>a{
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+
+
+
