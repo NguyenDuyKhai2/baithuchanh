@@ -1,21 +1,20 @@
-var tenDN 
-var pass  
+var tenDN = "Nguyen Duy Khai"
+var pass  = "Khai123@"
 
  function dangky(){
         let dem=0;
         let user = document.getElementById("user").value;
-        let regexuser = /^[a-zA-Z0-9]{6,15}$/;
+        let regexuser = /^[a-zA-Z0-9' ]{6,15}$/;
         
-        if(!regexuser.test(user) || user.trim() === ""){
+        if(!regexuser.test(user) || user.trim() == ""){
             document.getElementById("err1").innerHTML = "* Bắt buộc, gồm (6-15 kí tự) chữ và số";
-            dem++
+            dem++;
         } else {
             document.getElementById("err1").innerHTML = "(*)";
             tenDN = user;
             
         }
         
-
     
         let sdt = document.getElementById("sdt").value;
         let regexsdt = /^[0][3-9]{1}[0-9]{8}$/;
@@ -68,9 +67,9 @@ var pass
         
         if(dem==0){
         // alert('ĐĂNG KÝ THÀNH CÔNG !');
-        $('#dktc').modal('show');
+       
         $('#dangki').modal('hide');
-        
+        $('#dktc').modal('show');
         document.getElementById("user").value="";
         document.getElementById("sdt").value="";
         document.getElementById("password").value="";
@@ -88,15 +87,16 @@ function dangnhap(){
         dem++
     }
 
-    let pas =document.getElementById("mk").value
+    let pas =document.getElementById("pw").value
     if(pas != pass || pas.trim()=="")
     {
         dem++
     }
 
     if(dem==0 ){
-        alert("ĐĂNG NHẬP THÀNH CÔNG")
+        // alert("ĐĂNG NHẬP THÀNH CÔNG")
         $('#modallog').modal('hide');
+        $('#dntc').modal('show');
         document.getElementById("dn").value="";
         document.getElementById("mk").value="";
     }else{
@@ -109,7 +109,5 @@ function dong(){
         document.getElementById("dn").value="";
         document.getElementById("mk").value="";
 }
-
-
 
 

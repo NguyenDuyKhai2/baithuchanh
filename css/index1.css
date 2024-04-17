@@ -23,10 +23,9 @@
      max-width: 1000px;
      margin: auto;
  }
-#hd{
+ .container ul img{
      height: 70px; 
      line-height: 50px;
-   
  }
  /* ...............Nav....................... */
  
@@ -35,7 +34,6 @@
      background: #d1d1ce;
      /* margin-top: -4px; */
      height: 70px;
-    
  }
  nav ul{
      display: flex;
@@ -45,7 +43,6 @@
      width: 1050px;
      margin-left: -50px;
      margin-top: -9px;
-     
  }
  nav ul li, a{
      font-size: 13px;
@@ -376,20 +373,6 @@
      /* border: 1px solid red; */
  }
  /* Phụ Kiện */
-
-    /* Định dạng cho nút */
- 
- .nd_pk{
-    display: flex;
-    position: relative;
- }
- .bt_pk{
-    position: absolute;
-    top: 155px; 
-    right: 10px;
-    
-
- }
  .anhpk{
      margin-right: 5px;
      border: 1px solid rgb(226, 223, 223);
@@ -400,13 +383,6 @@
      width: 200.6px;
      margin-bottom: 5px;
  }
- .anhpk button {
-    background-color: #d1d1ce;
-    border-radius: 5px;
-    border: 1px solid #232324;
-    padding: 5px 13px; /* Điều chỉnh kích thước bên trong của nút */
-    font-size: 12px; /* Điều chỉnh kích thước của văn bản trong nút */
-}
  .anhpk>div{
      font-size: 12px;
      
@@ -528,21 +504,8 @@
  .rotate-up {
      transform: rotate(180deg);
  }
-
-.about-section {
-    display: block; 
-    padding: 50px;
-    text-align: left;
-    background-image: url(../img/bgFT.jpg);
-    color: white;
-    border-radius: 10px;
-    border: 1px solid rgb(249, 246, 246);
-    background-size: cover;
-}
-main{
-    margin-top: 3px;
-} 
-...............css modal.......................... */
+ 
+ /* .................css modal.......................... */
  
  .modal-bodydd{
      overflow-y: auto; 

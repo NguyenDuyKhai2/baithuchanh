@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Xe Máy</title>
+    <script src="http://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="../bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script  type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/chuyenanh.js"></script>
+    <script src="../js/dangky.js"></script>
+    <script src="../js/timKiem.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".input").keyup(function(event){ // Lắng nghe sự kiện khi người dùng nhập vào ô tìm kiếm
+            if (event.keyCode === 13) { // Kiểm tra nếu phím được ấn là phím "Enter" (mã 13)
+                var searchText = $(this).val().toLowerCase(); // Lấy giá trị nhập vào và chuyển về chữ thường
+                $("html, body").animate({ // Cuộn trang xuống phần "anhsec"
+                    scrollTop: $("#sec").offset().top
+                }, 100);
+            } else {
+                var searchText = $(this).val().toLowerCase(); // Lấy giá trị nhập vào và chuyển về chữ thường
+                $(".anhsec").filter(function(){ // Lọc các sản phẩm
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1); // Ẩn/hiện sản phẩm phù hợp với từ khóa tìm kiếm
+                }); 
+            }
+            // Điều chỉnh kích thước của khunggt
+            var visibleProducts = $('.anhsec:visible').length; // Số sản phẩm hiển thị
+                var productsPerRow = 4; // Số sản phẩm mỗi hàng
+                var rows = Math.ceil(visibleProducts / productsPerRow); // Số hàng
+                var newHeight = rows * ($('.anhsec').outerHeight() + 50); // Tính toán chiều cao mới
+                $('.khunggt').height(newHeight); // Đặt chiều cao mới cho khunggt
+        });
+        // Lắng nghe sự kiện khi click vào các link trên thanh menu
+    $('.liip').on('click', function(event){
+        event.preventDefault(); // Ngăn chặn hành động mặc định của link
+        var category = $(this).text(); // Lấy danh mục sản phẩm từ nội dung của link
+        searchProducts(category); // Gọi hàm tìm kiếm sản phẩm với danh mục đã chọn
+    });
+
+    // Hàm tìm kiếm sản phẩm
+    function searchProducts(category) {
+        $(".anhsec").hide(); // Ẩn tất cả các sản phẩm
+        $(".anhsec:contains('" + category + "')").show(); // Hiển thị sản phẩm có chứa danh mục được chọn
+        $("html, body").animate({ // Cuộn trang xuống phần "anhsec"
+                    scrollTop: $("#sec").offset().top
+                }, 10);
+        // Điều chỉnh kích thước của khunggt
+        var visibleProducts = $('.anhsec:visible').length; // Số sản phẩm hiển thị
+        var productsPerRow = 5; // Số sản phẩm mỗi hàng
+        var rows = Math.ceil(visibleProducts / productsPerRow); // Số hàng
+        var newHeight = rows * ($('.anhsec').outerHeight()+ 50); // Tính toán chiều cao mới
+        $('.khunggt').height(newHeight); // Đặt chiều cao mới cho khunggt
+        
+    }  
+    }
+    
+);
+    </script>
+</head>
+<body>
+
+     <header>
+        <nav>
+       <div class="container" >
+        <ul>
+            <!-- <li style="height: 50px;"><a href="" style="line-height: 50px;">XShop</a></li> -->
+            <img id="hd" src="../img/logoKM.png" alt="" href="index1.html">
+            <li><a  data-bs-target="#diadiem" data-bs-toggle="modal" href="" style="text-decoration: none;"><p style="color: white; font-size: 10px; text-decoration: none; padding-top: 15px;">Xem giá, khuyến mãi tại <br> <span style="font-size: 10px;" id="Diemmuadt">Hồ Chí Minh...</span><i class="fas fa-sort-down"></i> </p></a></li>
+            <li> <a href="# "><input type="text" class="search input" placeholder="Tìm kiếm...." style="padding-left: 6px;"> <i class="fas fa-search"></a></i></li>
+            <li><button><i class="fas fa-shopping-cart"></i> Giỏ hàng</button></li>
+            <li class="khungnav"><a href="../html/index1.html" class="textnone">Trang Chủ</a></li>
+            <li class="khungnav"><a href="#GT" class="textnone">Giới thiệu</a></li>
+            <!-- <li class="khungnav"><a href="#" class="textnone">Liên hệ</a></li> -->
+            <li class="khungnav"><a href="#" class="textnone"  data-bs-toggle="modal" data-bs-target="#modallog">Đăng nhập</a></li>
+            <li class="khungnav"><a href="#" class="textnone"  data-bs-toggle="modal" data-bs-target="#dangki"> Đăng ký</a></li>
+            
+        </ul>
+       </div>
+    </nav>
+    <div class="menu">
+         <ul class="main-menu" >
+            <li>
+                <a href="xemay.html" class="textmenu" > Xe Máy<i class="fas fa-sort-down"></i></a>
+                <ul class="sup-menu" style="width:151px;">
+                    <li style="width: 149px;"><a href="xemay.html" class="liip" onclick="searchProducts()">Honda</a>       
+                    </li>
+                    <li style="width: 149px;"><a href="xemay.html" class="liip"  onclick="searchProducts()">Yamaha</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="phukien.html" class="textmenu " > Phụ Kiện </a>
+            </li>          
+         </ul>
+    </div>
+    </header> 
+   
+    <article>
+    <section id="discounted-products">
+        <img src="../img/banner0.png" alt="" id="anh">
+         <div >
+                <i onclick="chuyenAnhNguoc()"></i>
+        </div >
+        
+        <div class=" khunggt container-fluid"  data-aos="fade-up" data-aos-duration="2500">
+                <div class="tieude">
+                    <h5>Mặt Hàng Xe Máy<span style="font-size: 8px;"> (mua tại cửa hàng) </span></h5>
+                </div>
+                <div class="rowgt" style="display: flex; flex-wrap: wrap;">
+                    <div class=" bg-white anhsec">
+                        <img src="../img/xm1.jpg" alt="#" >
+                        <div style="margin-left: 5px;">
+                            <strong>Air Blade 2020</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">43.190.182 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                            
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm2.png" alt="#" >
+                        <div style="margin-left: 5px">
+                            <strong>Air Blade 125 phiên bản Tiêu Chuẩn</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">43.190.182 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Đỏ Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm3.jpg" alt="#" >
+                        <div style="margin-left: 5px">
+                            <strong>Lead 125</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">42.797.455 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Trắng Sữa</li>
+                                <li>Độ Cao Yên: 760mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.844mm x 680mm x 1.130mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm4.jpg" alt="#" >
+                        <div style="margin-left: 5px">
+                            <strong>SH 350i</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">150.990.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 172 kg</li>
+                                <li>Màu Sắc: Đỏ</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 9,3 lít</li>
+                                <li>Dài Rộng Cao: 2.160mm x 743mm x 1.162mm</li>
+                                <li>Hộp Số: Biến thiên vô cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm5.jpg" alt="#" >
+                        <div style="margin-left: 5px">
+                            <strong>SHmode 125cc</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">57.132.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 116 kg</li>
+                                <li>Màu Sắc:Trắng</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887mm x 687mm x 1.092mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm6.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Winner V3</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">50.060.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,5lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm7.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Vison 2021</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">30.990.000đ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm8.png" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>EXCITER 155 VVA</strong> <br>
+                            Honda <br>
+
+                            <b style="color: red;">30.990.000VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm9.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>NVX 155 VVA</strong> <br>
+                            Yamaha <br>
+
+                            <b style="color: red;">54.000.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Trắng Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm10.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Sirius 2022</strong> <br>
+                            Yamaha <br>
+
+                            <b style="color: red;">54.000.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm11.png" alt="" style="width: 100px; height: 120px; margin-left: 20px;">
+                        <div style="margin-left: 5px;">
+                            <strong>Exciter 2018</strong> <br>
+                            Yamaha <br>
+
+                            <b style="color: red;">30.990.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm12.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Jannus 2022</strong> <br>
+                            Yamaha <br>
+
+                            <b style="color: red;">30.990.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Đỏ Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887 x 687 x 1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                               
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm13.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Nouvo4 LX</strong> <br>
+                            Yamaha <br>
+
+                            <b style="color: red;">30.990.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Trắng </li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887x68x1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm14jpg.jpg" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Grande 2017</strong> <br>
+                            Yamaha <br>
+                            <b style="color: red;">30.990.000 VNĐ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887x687x1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class=" bg-white anhsec" style="margin-left: 1px;">
+                        <img src="../img/xm15.png" alt="" >
+                        <div style="margin-left: 5px">
+                            <strong>Sirius 2010</strong> <br>
+                            Yamaha <br>
+                            <b style="color: red;">30.990.000đ</b>
+                            <ol style="list-style: circle;margin-left: -20px;">
+                                <li>Khối Lượng: 113 kg</li>
+                                <li>Màu Sắc: Xanh Xám Đen</li>
+                                <li>Độ Cao Yên: 775mm</li>
+                                <li>Dung Tích Bình Xăng: 4,4 lít</li>
+                                <li>Dài Rộng Cao: 1.887x687x1.092 mm</li>
+                                <li>Hộp Số: Vô Cấp </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+</article>
+<main class="about-section" data-aos="fade-up" data-aos-duration="2500">
+    <div >
+        <h3>Giới Thiệu</h3>
+        <p>Luôn tận tình tư vấn mọi lúc</p>
+        <p>Chuyên kinh doanh, phân phối phụ tùng xe gắn máy với giá cạnh tranh và chất lượng phục vụ tốt nhất.</p>
+        <p>&nbsp;</p>
+    </div>
+    <div>
+        <p>&nbsp;</p>
+        <div><p>Địa Chỉ : 12 Nguyễn Văn Bảo</p></div>
+        <div><p>Phone : 0961153206 </p></div>
+    </div>
+</main>
+<!-- footer -->
+<footer  id="GT" class="footer bg-white"  data-aos="fade-up" data-aos-duration="2500">
+    <section class="footer-top clearfix">
+        <div class="footer-col">
+            <h6 class="footer-title">
+                Thông tin và chính sách
+            </h6>
+            <ul class="footer-menu " id="menu-list">
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Chính sách bảo hành</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Chính sách đổi trả</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Mua hàng trả góp Online</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Mua hàng trả góp bằng thẻ tín dụng</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Giao hàng &amp; Thanh toán</a></li>
+                <li class="footer-list-link" id="xem-them"><a class="footer-text-link" href="#">Xem thêm<span class='rotate-up'>▼</span></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6 class="footer-title">
+                Dịch vụ và thông tin khác
+            </h6>
+            <ul class="footer-menu">
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Liên hệ hợp tác kinh doanh</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Chính sách bảo mật thông tin cá nhân</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Gửi góp ý, khiếu nại</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Dịch vụ bảo hành điện thoại</a></li>
+                <li class="footer-list-link"><a class="footer-text-link" target="_blank" href="">Dịch vụ bảo hành mở rộng</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6 class="footer-title">
+                Tổng đài hỗ trợ miễn phí
+            </h6>
+            <ul class="footer-menu">
+                <li class="footer-list-contact"><p class="footer-text-call">Gọi mua hàng:</p><a class="footer-text-contact" target="_blank" href="tel:+84393465113" >0393465113</a></li>
+                <li class="footer-list-contact"><p class="footer-text-call">Gọi Khiếu nại:</p><a class="footer-text-contact" target="_blank" href="tel:+84393465113" >0393465113</a></li>    
+                <li class="footer-list-contact"><p class="footer-text-call">Gọi bảo hành:</p><a class="footer-text-contact" target="_blank" href="mailto: khainguyenduy5@gmail.com">khainguyenduy5@gmail.com</a></li>   
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6 class="footer-title">
+                Kết nối với XShop
+            </h6>
+            <ul class="footer-menu">
+                <li class="footer-list-logo"><a target="_blank" href="https://www.facebook.com/HeungMinSonOfficial"><img class="footer-img-logo" src="../img/logofacebook.png" alt=""></a></li>
+                <li class="footer-list-logo"><a target="_blank" href="https://www.instagram.com/hm_son7/"><img class="footer-img-logo"g src="../img/logoinstagram.png" alt=""></a></li>
+                <li class="footer-list-logo"><a target="_blank" href="https://www.youtube.com/@TottenhamHotspur"><img class="footer-img-logo" src="../img/logoyoutube.png" alt=""></a></li>
+                <li class="footer-list-logo"><a target="_blank" href="https://www.tiktok.com/@spursofficial"><img class="footer-img-logo" src="../img/logotiktok.png" alt=""></a></li>
+                <li class="footer-list-logo"><a target="_blank" href=""><img class="footer-img-logo" src="../img/logozalo.webp" alt=""></a></li>
+            </ul>
+            <h6 class="footer-title">
+                Website thành viên
+            </h6>
+            <ul class="footer-menu">
+                <li class="footer-list-avarta"><a target="_blank" href="https://www.4kfarm.com/"><img class="footer-avarta-member" src="../img/avarta-4kfarm.png" alt=""></a></li>
+                <li class="footer-list-avarta"><a target="_blank" href="https://avafashion.org/#!"><img class="footer-avarta-member" src="../img/avarta-AVAfashion.png" alt=""></a></li>
+                <li class="footer-list-avarta"><a target="_blank" href="http://ww25.avaji.org/?subid1=20240327-2224-1045-b8f4-5d311a1a1a85"><img class="footer-avarta-member" src="../img/avarta-AVAJi.png" alt=""></a></li>
+                <li class="footer-list-avarta"><a target="_blank" href="https://www.avakids.com/online-gia-re?utm_source=facebook&utm_medium=cpc&utm_campaign=avakids-km&gad_source=1&gclid=CjwKCAjwh4-wBhB3EiwAeJsppB8JtQ6TUErr-t6vDZKkWJkHzzzayK8djIrnE8VJPuqEg8t1zhRUyxoCo1wQAvD_BwE"><img class="footer-avarta-member" src="../img/avarta-AVAKid.png" alt=""></a></li>
+                <li class="footer-list-avarta"><a target="_blank" href="https://www.bachhoaxanh.com/"><img class="footer-avarta-member" src="../img/avarta-bachhoaxanh1.png" alt=""></a></li>
+                <li class="footer-list-avarta"><a target="_blank" href="https://www.nhathuocankhang.com/"><img class="footer-avarta-member" src="../img/avarta-nhathuoc.png" alt=""></a></li>
+                <li class="footer-list-avarta"><a target="_blank" href="https://www.topzone.vn/"><img class="footer-avarta-member" src="../img/avarta-topfarm.png" alt=""></a></li>
+            </ul>
+            <h6 class="footer-title">
+                Phương thức thanh toán
+            </h6>
+            <ul class="footer-menu">
+                <li class="footer-list-avartapay"><img class="footer-avarta-pay" src="../img/avarta-card.png" alt=""></li>
+                <li class="footer-list-avartapay"><img class="footer-avarta-pay" src="../img/avarta-jcb.png" alt=""></li>
+                <li class="footer-list-avartapay"><img class="footer-avarta-pay" src="../img/avarta-atm.png" alt=""></li>
+                <li class="footer-list-avartapay"><img class="footer-avarta-pay" src="../img/avarta-tragop.png" alt=""></li>
+                <li class="footer-list-avartapay"><img class="footer-avarta-pay" src="../img/avarta-visa.png" alt=""></li>
+            </ul>
+        </div>
+    </section>
+     <div class="footer-bot" style="background-color: #f1f1f1">
+        <p>© Bản quyền 2024 - Lớp đại học kỹ thuật phần mềm 18A (Đại học Công Nghiệp Thành phố Hồ Chí Minh) <br>
+        <span><em style="font-size:10px; font-weight:normal">Mọi hành động sử dụng nội dung đăng tải trên Website XShop.com phải có sự đồng ý bằng văn bản của <b><a href="../html/index.html" style="text-decoration: none; color: black;">XShop</a></b>.</em></span>
+        </p>
+    </div>
+    </footer>
+    <!-- js footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xemThemLink = document.getElementById("xem-them");
+            var menuList = document.getElementById("menu-list");
+            var isExpanded = false;
+    
+            function addNewItems() {
+                var newItemsContent = [
+                    "Chính sách xử lý dữ liệu cá nhân",
+                    "Quy chế hoạt động",
+                    "Chất lượng phục vụ",
+                    "Cảnh báo giả mạo",
+                    "Hướng dẫn mua online",
+                    "Chính sách xử lý dữ liệu cá nhân1",
+                    "Quy chế hoạt động1",
+                    "Chất lượng phục vụ1",
+                    "Cảnh báo giả mạo1",
+                    "Hướng dẫn mua online1",
+                ];
+    
+                var i = 0;
+                var interval = setInterval(function() {
+                    if (i >= newItemsContent.length) {
+                        clearInterval(interval);
+                        // Hiển thị nút "Ẩn bớt" và di chuyển nó xuống dưới cùng
+                        var anBotLink = document.createElement("li");
+                        anBotLink.className = "footer-list-link";
+                        anBotLink.id = "an-bot";
+                        anBotLink.innerHTML = "<a class='footer-text-link' href='#'>Ẩn bớt<span class='rotate-up'>▲</span></a>";
+                        menuList.appendChild(anBotLink);
+    
+                        // Thêm sự kiện cho nút "Ẩn bớt"
+                        anBotLink.querySelector("a").addEventListener("click", function(event) {
+                            event.preventDefault();
+                            isExpanded = false;
+                            removeNewItems();
+                            menuList.removeChild(anBotLink);
+                            xemThemLink.style.display = "block";
+                        });
+                    } else {
+                        var newListItem = document.createElement("li");
+                        newListItem.className = "footer-list-link added-item";
+                        newListItem.innerHTML = "<a class='footer-text-link' href='#'>" + newItemsContent[i] + "</a>";
+                        menuList.appendChild(newListItem);
+                        i++;
+                    }
+                }, 7);
+            }
+    
+            function removeNewItems() {
+                var addedItems = document.querySelectorAll(".added-item");
+                var i = addedItems.length - 1;
+                var interval = setInterval(function() {
+                    if (i < 0) {
+                        clearInterval(interval);
+                    } else {
+                        menuList.removeChild(addedItems[i]);
+                        i--;
+                    }
+                }, 7);
+            }
+    
+            xemThemLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                if (!isExpanded) {
+                    addNewItems();
+                    xemThemLink.style.display = "none";
+                    isExpanded = true;
+                }
+            });
+        });
+    </script>
+
+<!-- Modal Đăng nhập -->
+    <div class="modal" id="modallog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: rgba(0,0,0,0.8);">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-size: 25px; padding-top: 5px; color: #c4b22a">
+                        Đăng nhập 
+                     </h5>
+                     <button class="btn btn-close btn-light" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div>
+                            <span id="tb" style="color: red;font-style: italic;"></span></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="dn"> Tên đăng nhập:</label>
+                            <span id="errdn" style="color: red;font-style: italic;">(*)</span>
+                            <input type="text" name="" id="dn" class="form-control" placeholder="Tên đăng nhập" value="22711231"> 
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mk">Mật khẩu:</label>
+                        <span id="errmk" style="color: red;font-style: italic;">(*)</span>    
+                        <input type="password" class="form-control" name="" id="mk" placeholder="Mật khẩu" value="Hung123@">
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-toggle="modal" onclick="dangnhap()"  >Đăng nhập</button>
+                    <button data-bs-dismiss="modal" class="btn btn-light" id="dong" onclick="dong()" >Đóng</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal Đăng nhâp thành công -->
+    <div class="modal" id="dntc">
+        <div class="modal-dialog">
+            <div class="modal-content"  style="background-color: rgba(0,0,0,0.8);">
+                <div class="modal-header">
+                    <button data-bs-dismiss="modal" class="btn btn-close btn-light" style="color: white;"></button>
+                </div>
+                <div class="modal-body text-white " style="text-align: center; font-weight: bold; font-size: 30px;      ">
+                    <p>Đăng nhập thành công</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Đăng ký -->
+    <div class="modal" id="dangki">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: rgba(0,0,0,0.8);" >
+                <div class="modal-header">
+                    <h3 style="font-size: 25px; padding-top: 5px; color: #c4b22a;">
+                        Đăng ký
+                    </h3>
+                    <button class=" btn btn-light btn-close"  data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <p id="tb" style="text-align: center; color: white; font-size: 15px;"></p>
+                            <label for="user">Tên người dùng:</label>
+                            <span id="err1" style="color: red;font-style: italic;"></span>
+                            <input type="text" id="user"  class="form-control" placeholder="Nhập tên người dùng(gồm chữ và số)" value="Nguyen Duy Khai" >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sdt">Số điện thoại:</label>
+                            <span id="err2" style="color: red;font-style: italic;"></span>
+                            <input type="tel" id="sdt" placeholder="Số điện thoại" class="form-control" value="0393465113" >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <span id="err3" style="color: red;font-style: italic;"></span>
+                            <input type="email" class="form-control" id="email" placeholder="Email" value="khainguyenduy5@gmail.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password"> Mật khẩu:</label>
+                            <span id="err4" style="color: red;font-style: italic;"></span>
+                            <input type="password" id="password" class="form-control" placeholder="Mật khẩu có ít nhất một chữ hoa, một chữ thường và một ký tự đặc biệt" value="Hung1234@" >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="againpassword">Nhập lại mật khẩu:</label>
+                            <span id="err5" style="color: red;font-style: italic;"></span>
+                            <input type="password" id="againpassword" class="form-control" placeholder="Nhập lại mật khẩu" value="Hung1234@">
+                        </div>
+                        <div class="form-group" style="margin-left: 300px;margin-top: 10px;">
+                            <input id="closemodal" type="button" class="btn btn-primary" onclick="dangky()" value="Đăng ký" data-bs-toggle="modal"></input>
+                            <button data-bs-dismiss="modal" class="btn btn-light" id="dong" onclick="dong()">Đóng</button>
+                        </div>
+                    </form>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+<!-- Modal Đăng ký thành công -->
+        <div class="modal" id="dktc">
+            <div class="modal-dialog">
+                <div class="modal-content"  style="background-color: rgba(0,0,0,0.8);">
+                    <div class="modal-header">
+                        <button data-bs-dismiss="modal" class="btn btn-close" style="color: white;"></button>
+                    </div>
+                    <div class="modal-body text-white " style="text-align: center; font-weight: bold; font-size: 30px;      ">
+                        <p>Đăng ký thành công</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Modal Dịa điểm -->
+    <div class="modal" id="diadiem">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(47,128,237);">
+                    <p style="margin-top: 5px;">Mời bạn chọn địa chỉ <span id="diadiemchon">...</span></p>
+                    <button data-bs-dismiss="modal" class="btn btn-blue text-white" style="border: 1px solid lightblue;">Đóng</button>
+
+                </div>
+                <div class="modal-body text-dark">
+                    <div class="modal-bodydd">
+                        <div class="row ">
+                            <div class="col-5" >
+                                <p><a href="#" id="q1" class="loc">Quận 1</a></p>
+                            </div>
+                            <div class="col-5" >
+                                <p><a href="#" id="q3" class="loc">Quận 3</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="q4">
+                                <p><a href="#" class="loc">Quận 4</a></p>
+                            </div>
+                            <div class="col-5" id="q5">
+                                <p><a href="#" class="loc">Quận 5</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="q6">
+                                <p><a href="#" class="loc">Quận 6</a></p>
+                            </div>
+                            <div class="col-5" id="q7">
+                                <p><a href="#" class="loc">Quận 7</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="q8">
+                                <p><a href="#" class="loc">Quận 8</a></p>
+                            </div>
+                            <div class="col-5" id="q10">
+                                <p><a href="#" class="loc">Quận 10</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="q11">
+                                <p><a href="#" class="loc">Quận 11</a></p>
+                            </div>
+                            <div class="col-5" id="q12">
+                                <p><a href="#" class="loc">Quận 12</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="qbt">
+                                <p><a href="#" class="loc">Quận Bình Tân</a></p>
+                            </div>
+                            <div class="col-5" id="abth">
+                                <p><a href="#" class="loc">Quận Bình Thạnh</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="qgv">
+                                <p><a href="#" class="loc">Quận Gò Vấp</a></p>
+                            </div>
+                            <div class="col-5" id="qpn">
+                                <p><a href="#" class="loc">Quận Phú Nhuận</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="qtb">
+                                <p><a href="#" class="loc">Quận Tân Bình</a></p>
+                            </div>
+                            <div class="col-5" id="qtp">
+                                <p><a href="#" class="loc">Quận Tân Phú</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="qbc">
+                                <p><a href="#" class="loc">Huyện Bình Chánh</a></p>
+                            </div>
+                            <div class="col-5" id="hcg">
+                                <p><a href="#" class="loc">Huyện Cần Giờ</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="hcc">
+                                <p><a href="#" class="loc">Huyện Củ Chi</a></p>
+                            </div>
+                            <div class="col-5" id="hhm">
+                                <p><a href="#" class="loc">Huyện Hóc Môn</a> </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5" id="hnb">
+                                <p><a href="#" class="loc">Huyện Nhà Bè</a></p>
+                            </div>
+                            <div class="col-5" >
+                                <p><a href="#" id="tptd" class="loc">TP.Thủ Đức</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- <script>
+        let link=document.getElementById("q1");
+        
+        let timkiem= document.getElementById("Diemmuadt");
+        link.addEventListener("click", function(event){
+            event.preventDefault();
+            let linkValue=link.textContent;
+            timkiem.textContent=linkValue;
+            $('#diadiem').modal('hide');
+        }); 
+        
+    </script> -->
+
+    <script>
+        let modalLink= document.getElementsByClassName("loc");
+        for(let i=0; i<modalLink.length;i++){
+            modalLink[i].addEventListener("click", function(envet){
+                let linkvalue=this.textContent;
+                document.getElementById("Diemmuadt").textContent=linkvalue;
+                $('#diadiem').modal('hide');
+            });   
+        }
+    </script>
+    <script>
+        // Đặt thời điểm đích mà bạn muốn đếm ngược đến
+        let countDownDate = new Date("May 1, 2024 00:00:00").getTime();
+        
+        // Cập nhật đếm ngược mỗi 1 giây
+        let x = setInterval(function() {
+        
+          // Lấy thời điểm hiện tại
+          let now = new Date().getTime();
+          
+          // Tính khoảng cách thời gian giữa bây giờ và thời điểm đích
+          let distance = countDownDate - now;
+          
+          // Tính toán số ngày, giờ, phút và giây
+          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          // Hiển thị kết quả trong thẻ <p> có class="time"
+          document.querySelector('.box-countdown .box-time').innerHTML = 
+            '<li><p class="time">' + days + '</p><p class="separate">:</p></li>' +
+            '<li><p class="time">' + hours + '</p><p class="separate">:</p></li>' +
+            '<li><p class="time">' + minutes + '</p><p class="separate">:</p></li>' +
+            '<li><p class="time">' + seconds + '</p><p class="separate"></p></li>';
+                                  
+         // Nếu đếm ngược kết thúc, hiển thị một thông báo
+        if (distance < 0) {
+        clearInterval(x);
+        document.querySelector('.box-countdown .box-time').innerHTML = "Đã kết thúc";
+        }
+        },1000);
+        </script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+      </script>
+</body>
+</html>
